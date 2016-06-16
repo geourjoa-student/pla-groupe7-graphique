@@ -88,7 +88,7 @@ String derniere_action = "null";
 		 this.getChildren().add(imageView);
 	} */
 	
-	/*
+	
 	public void afficherMap(Case[][] decor ) {
 		for (int j = 0; j < decor.length; j++) {
 			for (int i = 0; i < decor.length; i++) {
@@ -99,7 +99,7 @@ String derniere_action = "null";
 		}
 	} 
 	
-	*/
+	
 	public void afficherPersonnages(List<Personnage> personnages ) {
 		/*int x;
 		int y;
@@ -164,10 +164,10 @@ public Action getNouvelleAction() {
 				System.out.println("z,q,s,d -> haut, gauche, bas, droite");
 				System.out.println("0 -> ne rien faire");
 				System.out.println("1 -> attaquer");
-				System.out.println("2 -> récolter");
+				System.out.println("2 -> rï¿½colter");
 				System.out.println("3 -> soigner");
 				System.out.println("4 -> convertir");
-				System.out.println("5 -> créer unité");
+				System.out.println("5 -> crï¿½er unitï¿½");
 				System.out.println("6 -> attaquer batiment");
 				System.out.println("? ou n'importe quelles autres touches -> afficher ce manuel puis saisir une action correcte.");
 				*/
