@@ -48,6 +48,10 @@ public class Case {
 		}
 	}
 
+	public int getVie(){
+		return vie;
+	}
+	
 	public Type getTypeDeLaCase() {
 		return typeDeLaCase;
 	}

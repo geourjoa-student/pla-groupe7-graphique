@@ -356,10 +356,7 @@ public class Partie extends Parent{
 		
 		JDOM jdom = new JDOM();
 		inclureAutomates(jdom.xmlMain(nomFichierAutomates1), jdom.xmlMain(nomFichierAutomates2));
-		decor[1][1].setTypeDeLaCase(Type.HOPITAL);
-		decor[2][2].setTypeDeLaCase(Type.HOPITAL);
-		decor[3][3].setTypeDeLaCase(Type.HOPITAL);
-		decor[4][4].setTypeDeLaCase(Type.HOPITAL);
+
 		
 		// Tout le décor est crée, il faut maintenant chainer les cases entre
 		// elles
@@ -652,6 +649,8 @@ public void afficherMap(Case[][] decor ) {
 	for (int j = 0; j < HAUTEUR; j++) {
 		for (int i = 0; i < LARGEUR; i++) {
 			DecorGraphique tile = new DecorGraphique(i*60+(j%2)*30,j*23, decor[j][i].getTypeDeLaCase());
+			JaugeVie vie = new JaugeVie(i*60+(j%2)*30,j*23,decor[j][i].getVie());
+			this.getChildren().add(vie);
 			this.getChildren().add(tile);
 		}
 	}
