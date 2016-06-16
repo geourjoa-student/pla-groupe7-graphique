@@ -9,6 +9,7 @@ import automate.Automate;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.transform.Scale;
 
 public class Partie extends Parent{
 
@@ -663,6 +664,15 @@ public void afficherMap(Case[][] decor ) {
 		}
 		
 	}
+	
+	AffichageRessources affichageRessources = new AffichageRessources(150, 400);
+	affichageRessources.getTransforms().add(new Scale(1.5,1.5));
+	this.getChildren().add(affichageRessources);
+	
+	AffichageRessources affichageRessources2 = new AffichageRessources(650, 400);
+	affichageRessources2.getTransforms().add(new Scale(1.5,1.5));
+	this.getChildren().add(affichageRessources2);
+	
 } 
 
 
