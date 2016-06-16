@@ -20,7 +20,9 @@ public class Bibliotheque {
 	public static Image moine =new Image(Main.class.getResourceAsStream("/images/moine.gif"));
 	public static Image paysan =new Image(Main.class.getResourceAsStream("/images/paysan.gif"));
 	public static Image heros =new Image(Main.class.getResourceAsStream("/images/heros2.gif"));
+	
 	public static Image ressources =new Image(Main.class.getResourceAsStream("/images/ressources.png"));
+	public static Image vie =new Image(Main.class.getResourceAsStream("/images/vie.png"));
 
 	
 }

@@ -27,7 +27,9 @@ public abstract class Personnage {
 
 	protected Joueur proprietaire;
 
-	
+	public int getVie(){
+		return pointsDeVie;
+	}
 
 	public Joueur getProprietaire() {
 		return proprietaire;

@@ -60,7 +60,7 @@ public class Main extends Application {
    
         root.getChildren().add(p);
 		
-		root.getTransforms().add(new Scale(0.75,0.75));
+		root.getTransforms().add(new Scale(0.82,0.82));
 		//root.getTransforms().add(new Rotate(-38));
 		//root.setTranslateX(200);
 		//root.setTranslateY(250);

@@ -659,7 +659,10 @@ public void afficherMap(Case[][] decor ) {
 		for (int i = 0; i < LARGEUR; i++) {
 			if (decor[j][i].getPersonnagePresent() != null){
 			PersonnageGraphique perso = new PersonnageGraphique(i*60+(j%2)*30,j*23,decor[j][i].getPersonnagePresent());
+			JaugeVie vie = new JaugeVie(i*60+(j%2)*30,j*23,decor[j][i].getPersonnagePresent().getVie());
+			this.getChildren().add(vie);
 			this.getChildren().add(perso);
+			
 			}
 		}
 		

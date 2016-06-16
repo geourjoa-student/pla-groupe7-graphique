@@ -28,7 +28,7 @@ public class PersonnageGraphique extends Parent {
 	
 	
 public  PersonnageGraphique(int abscisse, int ordonnee, Personnage perso){
-	final ImageView imageView;  
+	final ImageView imageView;
 	
 	if (perso instanceof Guerrier){
 		imageView = new ImageView(Bibliotheque.guerrier);
@@ -40,11 +40,12 @@ public  PersonnageGraphique(int abscisse, int ordonnee, Personnage perso){
 		else
 			if (perso instanceof Paysan){
 				imageView = new ImageView(Bibliotheque.paysan);
+				imageView.setTranslateX(15);
+				imageView.setTranslateY(8);
 			}
 			else
 				if (perso instanceof Heros){
 					imageView = new ImageView(Bibliotheque.heros);
-					//imageView.getTransforms().add(new Scale(0.75,0.75));
 				}
 				else
 				{
@@ -54,6 +55,7 @@ public  PersonnageGraphique(int abscisse, int ordonnee, Personnage perso){
 	imageView.setX(abscisse);
 	imageView.setY(ordonnee);
 	this.getChildren().add(imageView);
+
 	
 }
 
