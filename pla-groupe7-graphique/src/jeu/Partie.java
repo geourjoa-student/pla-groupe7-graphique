@@ -365,7 +365,9 @@ public class Partie extends Parent{
 		}
 		
 		decor[1][(int)((LARGEUR-1)/2)].setTypeDeLaCase(Type.POLYTECH);
+		decor[1][(int)((LARGEUR-1)/2)].setVie(Case.CAPACITE_VIE_POLYTECH);
 		decor[HAUTEUR-2][(int)((LARGEUR-1)/2)].setTypeDeLaCase(Type.POLYTECH);
+		decor[HAUTEUR-2][(int)((LARGEUR-1)/2)].setVie(Case.CAPACITE_VIE_POLYTECH);
 		
 		joueur1.setBase(decor[1][(int)((LARGEUR-1)/2)]);
 		joueur2.setBase(decor[HAUTEUR-2][(int)((LARGEUR-1)/2)]);

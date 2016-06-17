@@ -4,9 +4,11 @@ import java.util.Random;
 
 public class Case {
 
-	private static final int CAPACITE_VIE_STANDARD = 100;
+	public static final int CAPACITE_VIE_STANDARD = 100;
+	
+	public static final int CAPACITE_VIE_POLYTECH = 500;
 
-	private static final int CAPACITE_RESSOURCE_STANDARD = 50;
+	public static final int CAPACITE_RESSOURCE_STANDARD = 50;
 
 	private int niveauDeResssource;
 	
@@ -43,8 +45,6 @@ public class Case {
 		personnagePresent=null;
 		positionH=h;
 		positionL=l;
-		
-		
 		
 		if(estBatiment()){
 			vie=CAPACITE_VIE_STANDARD;
@@ -225,6 +225,9 @@ public class Case {
 
 	public void setProprietaire(Joueur j){
 		proprietaire=j;
+	}
+	public void setVie(int vie){
+		this.vie=vie;
 	}
 public void recevoirDegat(int degat) {
 		
