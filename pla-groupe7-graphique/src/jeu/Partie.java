@@ -172,9 +172,16 @@ public class Partie extends Parent{
 					break;
 					
 				}
-
-	            System.out.println(te);
+	        
+	            if (! estTermine()){
 	            jouerTour();
+	            }
+	            else
+	            {
+	            	//TODO mettre un screen de fin de partie
+	            }
+	        
+	            
 	        }
 	});
 		
