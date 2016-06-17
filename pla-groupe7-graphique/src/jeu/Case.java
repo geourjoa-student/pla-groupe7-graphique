@@ -246,7 +246,7 @@ public void recevoirDegat(int degat) {
 	}
 	
 	
-	public void reparer(){
+	public boolean reparer(){
 		switch (typeOriginal){
 			
 			case ARBRE:
@@ -274,9 +274,9 @@ public void recevoirDegat(int degat) {
 				vie=CAPACITE_VIE_STANDARD;
 				break;
 			default :
-				break;
+				return false;
 		}
-		
+		return true;
 	}
 	
 
