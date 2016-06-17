@@ -283,8 +283,10 @@ public int getRole(){
 				break;
 			case 2:
 				allerADroite();
+				break;
 			case 3:
 				allerAGauche();
+				break;
 			default:
 				break;
 		}
