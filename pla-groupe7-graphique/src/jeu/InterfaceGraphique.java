@@ -88,17 +88,17 @@ String derniere_action = "null";
 		 this.getChildren().add(imageView);
 	} */
 	
-	
+	/*
 	public void afficherMap(Case[][] decor ) {
 		for (int j = 0; j < decor.length; j++) {
 			for (int i = 0; i < decor.length; i++) {
-				DecorGraphique tile = new DecorGraphique(i*60+(j%2)*30,j*23, decor[j][i].getTypeDeLaCase());
+				DecorGraphique tile = new DecorGraphique(i*60+(j%2)*30,j*23, decor[j][i].getTypeDeLaCase(),);
 				this.getChildren().add(tile);
 			}
 			
 		}
 	} 
-	
+	*/
 	
 	public void afficherPersonnages(List<Personnage> personnages ) {
 		/*int x;

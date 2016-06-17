@@ -673,7 +673,7 @@ public void afficherMap(Case[][] decor ) {
 	this.getChildren().clear();
 	for (int j = 0; j < HAUTEUR; j++) {
 		for (int i = 0; i < LARGEUR; i++) {
-			DecorGraphique tile = new DecorGraphique(i*60+(j%2)*30,j*23, decor[j][i].getTypeDeLaCase());
+			DecorGraphique tile = new DecorGraphique(i*60+(j%2)*30,j*23, decor[j][i], this);
 			JaugeVie vie = new JaugeVie(i*60+(j%2)*30,j*23,decor[j][i].getVie());
 			this.getChildren().add(vie);
 			this.getChildren().add(tile);
@@ -734,7 +734,7 @@ public void afficherMap2(Case[][] decor ){
 			nb_element_courant = 1;
 		}
 
-		DecorGraphique tile = new DecorGraphique(x, numero_ligne*23,decor[j][i].getTypeDeLaCase());
+		DecorGraphique tile = new DecorGraphique(x, numero_ligne*23,decor[j][i], this);
 		this.getChildren().add(tile);
 		
 		if (decor[j][i].getPersonnagePresent() != null){

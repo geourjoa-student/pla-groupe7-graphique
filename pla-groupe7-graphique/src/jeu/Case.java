@@ -18,6 +18,11 @@ public class Case {
 	
 	private Case caseADroite;
 	
+	public Joueur getProprietaire() {
+		return proprietaire;
+	}
+
+
 	private Case caseAGauche;
 	
 	private Case caseEnBas;

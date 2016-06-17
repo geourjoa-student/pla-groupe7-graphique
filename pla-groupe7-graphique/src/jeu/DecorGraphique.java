@@ -28,8 +28,9 @@ public class DecorGraphique extends Parent {
 	
 	
 	
-public  DecorGraphique(int abscisse, int ordonnee, Type type){
+public  DecorGraphique(int abscisse, int ordonnee, Case lacase, Partie partie){
 	final ImageView imageView;
+	Type type = lacase.getTypeDeLaCase();
 	switch (type) {
 	case ARBRE:
 		imageView = new ImageView(Bibliotheque.arbre);
@@ -53,7 +54,13 @@ public  DecorGraphique(int abscisse, int ordonnee, Type type){
 		break;
 		
 	case POLYTECH:
+		if (lacase.getProprietaire() == partie.getJoueur1()){
 		imageView = new ImageView(Bibliotheque.polytech);
+		}
+		else
+		{
+			imageView = new ImageView(Bibliotheque.polytechRouge);
+		}
 		break;
 		
 	case RUINES:
@@ -65,7 +72,13 @@ public  DecorGraphique(int abscisse, int ordonnee, Type type){
 		break;
 		
 	case HOPITAL:
+		if (lacase.getProprietaire() == partie.getJoueur1()){
 		imageView = new ImageView(Bibliotheque.hopital);
+		}
+		else
+		{
+			imageView = new ImageView(Bibliotheque.hopitalRouge);
+			}
 		break;
 		
 	case FERME:
