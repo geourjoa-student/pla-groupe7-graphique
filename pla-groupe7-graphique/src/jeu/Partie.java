@@ -514,6 +514,9 @@ public class Partie extends Parent{
 						if(p!=null)
 							tempo.add(p);
 						break;
+						
+					case REPARER:
+						((Heros) personnage).reparer();
 
 					case NE_RIEN_FAIRE:
 					default:
