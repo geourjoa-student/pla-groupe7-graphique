@@ -90,7 +90,7 @@ public class Heros extends Personnage {
 
 	public void reparer() {
 		if (proprietaire.getBois() >= COUT_REPARATION && (caseSousLePersonnage.caseAllie(this.proprietaire) || caseSousLePersonnage.getProprietaire() == null)) {
-			if(caseSousLePersonnage.reparer());
+			if(!(caseSousLePersonnage.reparer()))
 				proprietaire.retirerBois(COUT_REPARATION);
 		}
 

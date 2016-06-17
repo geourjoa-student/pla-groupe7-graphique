@@ -247,6 +247,10 @@ public void recevoirDegat(int degat) {
 	
 	
 	public boolean reparer(){
+		boolean tmp = false;
+		if(typeOriginal == typeDeLaCase)
+			tmp = true;
+			
 		switch (typeOriginal){
 			
 			case ARBRE:
@@ -276,7 +280,9 @@ public void recevoirDegat(int degat) {
 			default :
 				return false;
 		}
-		return true;
+		if(tmp)
+			return true;
+		return false;
 	}
 	
 
