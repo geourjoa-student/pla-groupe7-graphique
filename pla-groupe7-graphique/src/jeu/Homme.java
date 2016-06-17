@@ -72,7 +72,7 @@ public abstract class Homme extends Personnage{
 			}
 		}
 		
-		if(caseSousLePersonnage.getCaseEnHaut().estRecoltable()||caseSousLePersonnage.getCaseADroite().estRecoltable()||caseSousLePersonnage.getCaseEnHaut().estRecoltable()||caseSousLePersonnage.getCaseEnHaut().estRecoltable()){
+		if(caseSousLePersonnage.getCaseEnHaut().estRecoltable()||caseSousLePersonnage.getCaseADroite().estRecoltable()||caseSousLePersonnage.getCaseAGauche().estRecoltable()||caseSousLePersonnage.getCaseEnBas().estRecoltable()){
 			conditions.add(Condition.RESSOURCE_ADJACENTE);
 		}
 		

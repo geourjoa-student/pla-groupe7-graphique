@@ -71,9 +71,7 @@ public class Automate {
 		
 		for (Iterator<Condition> iterator = conditions.iterator(); iterator.hasNext();) {
 			Condition c = (Condition) iterator.next();
-			if(priorite[c.getCodeCondition()][courant]>=PAS_DE_PRIORITE){
-				if(priorite[c.getCodeCondition()][courant]>=PAS_DE_PRIORITE){
-				}
+			if(priorite[c.getCodeCondition()][courant]>=prioriteCourante){
 				prioriteCourante=priorite[c.getCodeCondition()][courant];
 				conditionRetenue=c.getCodeCondition();
 			} 

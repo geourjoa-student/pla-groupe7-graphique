@@ -100,6 +100,7 @@ String derniere_action = "null";
 	} 
 	*/
 	
+	
 	public void afficherPersonnages(List<Personnage> personnages ) {
 		/*int x;
 		int y;
@@ -176,5 +177,11 @@ public Action getNouvelleAction() {
 			}
 
 	}
+
+@Override
+public void afficherMap(Case[][] decor) {
+	// TODO Auto-generated method stub
+	
+}
 	
 }
