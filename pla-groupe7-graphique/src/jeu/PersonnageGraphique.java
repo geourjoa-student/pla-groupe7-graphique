@@ -31,15 +31,36 @@ public  PersonnageGraphique(int abscisse, int ordonnee, Personnage perso, Partie
 	final ImageView imageView;
 	
 	if (perso instanceof Guerrier){
+		if (perso.getProprietaire() == partie.getJoueur1())
+		{
 		imageView = new ImageView(Bibliotheque.guerrier);
+		}
+		else
+		{
+		imageView = new ImageView(Bibliotheque.guerrierRouge);	
+		}
 	}
 	else 
 		if (perso instanceof Moine){
-			imageView = new ImageView(Bibliotheque.moine);	
+			if (perso.getProprietaire() == partie.getJoueur1())
+			{
+			imageView = new ImageView(Bibliotheque.moine);
+			}
+			else
+			{
+			imageView = new ImageView(Bibliotheque.moineRouge);
+			}
 		}
 		else
 			if (perso instanceof Paysan){
+				if (perso.getProprietaire() == partie.getJoueur1())
+				{
 				imageView = new ImageView(Bibliotheque.paysan);
+				}
+				else
+				{
+				imageView = new ImageView(Bibliotheque.paysanRouge);
+				}
 				imageView.setTranslateX(15);
 				imageView.setTranslateY(8);
 			}
