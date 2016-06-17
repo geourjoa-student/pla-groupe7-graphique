@@ -82,7 +82,13 @@ public  DecorGraphique(int abscisse, int ordonnee, Case lacase, Partie partie){
 		break;
 		
 	case FERME:
+		if (lacase.getProprietaire() == partie.getJoueur1()){
 		imageView = new ImageView(Bibliotheque.ferme);
+		}
+		else
+		{
+			imageView = new ImageView(Bibliotheque.fermeRouge);
+		}
 		break;
 		
 	default:

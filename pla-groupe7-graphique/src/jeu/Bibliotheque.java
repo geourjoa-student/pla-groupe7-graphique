@@ -20,7 +20,7 @@ public class Bibliotheque {
 	//public static Image tourRouge = new Image(Main.class.getResourceAsStream("/images/tour_rouge.png"));
 	public static Image polytechRouge =new Image(Main.class.getResourceAsStream("/images/polytech_rouge.png"));
 	public static Image hopitalRouge =new Image(Main.class.getResourceAsStream("/images/hopital_rouge.png"));
-	///public static Image fermeRouge =new Image(Main.class.getResourceAsStream("/images/ferme_rouge.png"));
+	public static Image fermeRouge =new Image(Main.class.getResourceAsStream("/images/ferme_rouge.png"));
 	
 	public static Image guerrier =new Image(Main.class.getResourceAsStream("/images/guerrier.gif"));
 	public static Image moine =new Image(Main.class.getResourceAsStream("/images/moine.gif"));
