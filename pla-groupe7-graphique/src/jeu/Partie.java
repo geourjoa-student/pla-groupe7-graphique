@@ -135,7 +135,7 @@ public class Partie extends Parent{
 				case "&":
 					bufferJ1 =  Action.ATTAQUER;
 					break;
-				case "é":
+				case "É":
 					bufferJ1 =  Action.RECOLTER;
 					break;
 				case "\"":
@@ -150,7 +150,7 @@ public class Partie extends Parent{
 				case "-":
 					bufferJ1 =  Action.ATTAQUER_BATIMENT;
 					break;
-				case "è":
+				case "È":
 					bufferJ1 =  Action.REPARER;
 					break;
 					
