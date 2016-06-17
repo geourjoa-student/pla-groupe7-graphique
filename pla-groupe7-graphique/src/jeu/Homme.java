@@ -39,47 +39,41 @@ public abstract class Homme extends Personnage{
 			conditions.add(Condition.EGLISE_SOUS_CASE);
 		
 		if(caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent() != null){
-			if( allie(caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent()))
+			if( !allie(caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent()))
 				conditions.add(Condition.ENNEMI_ADJACENT);
 			else {
 				conditions.add(Condition.ALLIE_ADJACENT);
 			}
-			if(caseSousLePersonnage.getCaseEnHaut().estRecoltable()){
-				conditions.add(Condition.RESSOURCE_ADJACENTE);
-			}
+			
 		}
 		
 		if(caseSousLePersonnage.getCaseEnBas().getPersonnagePresent() != null){
-			if( allie(caseSousLePersonnage.getCaseEnBas().getPersonnagePresent()))
+			if( !allie(caseSousLePersonnage.getCaseEnBas().getPersonnagePresent()))
 				conditions.add(Condition.ENNEMI_ADJACENT);
 			else {
 				conditions.add(Condition.ALLIE_ADJACENT);
-			}
-			if(caseSousLePersonnage.getCaseEnHaut().estRecoltable()){
-				conditions.add(Condition.RESSOURCE_ADJACENTE);
 			}
 		}
 		
 		if(caseSousLePersonnage.getCaseAGauche().getPersonnagePresent() != null){
-			if( allie(caseSousLePersonnage.getCaseAGauche().getPersonnagePresent()))
+			if( !allie(caseSousLePersonnage.getCaseAGauche().getPersonnagePresent()))
 				conditions.add(Condition.ENNEMI_ADJACENT);
 			else {
 				conditions.add(Condition.ALLIE_ADJACENT);
 			}
-			if(caseSousLePersonnage.getCaseEnHaut().estRecoltable()){
-				conditions.add(Condition.RESSOURCE_ADJACENTE);
-			}
+			
 		}
 		
 		if(caseSousLePersonnage.getCaseADroite().getPersonnagePresent() != null){
-			if( allie(caseSousLePersonnage.getCaseADroite().getPersonnagePresent()))
+			if( !allie(caseSousLePersonnage.getCaseADroite().getPersonnagePresent()))
 				conditions.add(Condition.ENNEMI_ADJACENT);
 			else {
 				conditions.add(Condition.ALLIE_ADJACENT);
 			}
-			if(caseSousLePersonnage.getCaseEnHaut().estRecoltable()){
-				conditions.add(Condition.RESSOURCE_ADJACENTE);
-			}
+		}
+		
+		if(caseSousLePersonnage.getCaseEnHaut().estRecoltable()||caseSousLePersonnage.getCaseADroite().estRecoltable()||caseSousLePersonnage.getCaseEnHaut().estRecoltable()||caseSousLePersonnage.getCaseEnHaut().estRecoltable()){
+			conditions.add(Condition.RESSOURCE_ADJACENTE);
 		}
 		
 		return comportement.utiliserAutomate(conditions);
