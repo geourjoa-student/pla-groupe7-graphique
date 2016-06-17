@@ -46,11 +46,23 @@ public  DecorGraphique(int abscisse, int ordonnee, Case lacase, Partie partie){
 		break;
 		
 	case CASERNE:
+		if (lacase.getProprietaire() == partie.getJoueur1()){
 		imageView = new ImageView(Bibliotheque.caserne);
+		}
+		else
+		{
+	imageView = new ImageView(Bibliotheque.caserneRouge);
+		}
 		break;
 
 	case EGLISE:
+		if (lacase.getProprietaire() == partie.getJoueur1()){
 		imageView = new ImageView(Bibliotheque.tour);
+		}
+		else
+		{
+		imageView = new ImageView(Bibliotheque.tourRouge);	
+		}
 		break;
 		
 	case POLYTECH:
