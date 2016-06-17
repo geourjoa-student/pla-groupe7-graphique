@@ -30,6 +30,10 @@ public abstract class Joueur {
 	
 	protected Case base;
 	
+	public int getNombrePersonnage() {
+		return nombrePersonnage;
+	}
+
 	private Heros heros;
 	
 	public int getBois() {

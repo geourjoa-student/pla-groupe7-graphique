@@ -40,7 +40,15 @@ public class Partie extends Parent{
 	private Case decor[][];
 	Action bufferJ1 = Action.NE_RIEN_FAIRE;
 	Action bufferJ2 = Action.NE_RIEN_FAIRE;
+	
+	
+	public Joueur getJoueur1(){
+		return joueur1;
+	}
 
+	public Joueur getJoueur2(){
+		return joueur2;
+	}
 	public Partie(InterfaceUtilisateur interfaceUtilisateur, Joueur joueur1, Joueur joueur2) {
 			
 		this.interfaceUtilisateur = interfaceUtilisateur;
@@ -120,6 +128,9 @@ public class Partie extends Parent{
 				case "6":
 					bufferJ2 =  Action.ATTAQUER_BATIMENT;
 					break;
+				case "7":
+					bufferJ2 =  Action.REPARER;
+					break;
 					
 				case "&":
 					bufferJ1 =  Action.ATTAQUER;
@@ -138,6 +149,9 @@ public class Partie extends Parent{
 					break;
 				case "-":
 					bufferJ1 =  Action.ATTAQUER_BATIMENT;
+					break;
+				case "È":
+					bufferJ1 =  Action.REPARER;
 					break;
 					
 					
@@ -667,11 +681,11 @@ public void afficherMap(Case[][] decor ) {
 		
 	}
 	
-	AffichageRessources affichageRessources = new AffichageRessources(150, 400);
+	AffichageRessources affichageRessources = new AffichageRessources(150, 400, joueur1);
 	affichageRessources.getTransforms().add(new Scale(1.5,1.5));
 	this.getChildren().add(affichageRessources);
 	
-	AffichageRessources affichageRessources2 = new AffichageRessources(650, 400);
+	AffichageRessources affichageRessources2 = new AffichageRessources(650, 400, joueur2);
 	affichageRessources2.getTransforms().add(new Scale(1.5,1.5));
 	this.getChildren().add(affichageRessources2);
 	
