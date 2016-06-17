@@ -198,8 +198,10 @@ public int getRole(){
 	}
 	
 	public boolean estVivant (){
-		if(pointsDeVie <= 0)
+		if(pointsDeVie <= 0){
 			caseSousLePersonnage.retirerPersonnagePresent();
+			
+		}
 		return (pointsDeVie>0);
 	}
 	
@@ -217,7 +219,9 @@ public int getRole(){
 	}
 
 	public void etreConvertie(Joueur j){
+		proprietaire.retirerUnPersonnage();
 		this.proprietaire=j;
+		proprietaire.ajouterUnPersonnage();
 	}
 	
 	public void convertir(){

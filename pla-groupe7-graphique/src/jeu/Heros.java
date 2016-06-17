@@ -73,6 +73,7 @@ public class Heros extends Personnage {
 
 				if (caseBatiment.getTypeDeLaCase() == Type.CASERNE) {
 					p = proprietaire.creerGuerrier(caseInsertion);
+					
 				}
 				if (caseBatiment.getTypeDeLaCase() == Type.POLYTECH) {
 					p = proprietaire.creerPaysan(caseInsertion);

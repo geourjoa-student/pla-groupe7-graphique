@@ -33,6 +33,14 @@ public abstract class Joueur {
 	public int getNombrePersonnage() {
 		return nombrePersonnage;
 	}
+	
+	public void retirerUnPersonnage() {
+		nombrePersonnage-=1;
+	}
+	
+	public void ajouterUnPersonnage() {
+		nombrePersonnage+=1;
+	}
 
 	private Heros heros;
 	

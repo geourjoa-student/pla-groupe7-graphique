@@ -135,7 +135,7 @@ public class Partie extends Parent{
 				case "&":
 					bufferJ1 =  Action.ATTAQUER;
 					break;
-				case "É":
+				case "Ã‰":
 					bufferJ1 =  Action.RECOLTER;
 					break;
 				case "\"":
@@ -150,7 +150,7 @@ public class Partie extends Parent{
 				case "-":
 					bufferJ1 =  Action.ATTAQUER_BATIMENT;
 					break;
-				case "È":
+				case "Ãˆ":
 					bufferJ1 =  Action.REPARER;
 					break;
 					
@@ -160,10 +160,10 @@ public class Partie extends Parent{
 					System.out.println("z,q,s,d -> haut, gauche, bas, droite");
 					System.out.println("0 -> ne rien faire");
 					System.out.println("1 -> attaquer");
-					System.out.println("2 -> récolter");
+					System.out.println("2 -> rï¿½colter");
 					System.out.println("3 -> soigner");
 					System.out.println("4 -> convertir");
-					System.out.println("5 -> créer unité");
+					System.out.println("5 -> crï¿½er unitï¿½");
 					System.out.println("6 -> attaquer batiment");
 					System.out.println("? ou n'importe quelles autres touches -> afficher ce manuel puis saisir une action correcte.");
 					*/
@@ -507,7 +507,7 @@ public class Partie extends Parent{
 						personnage.soigner();
 						break;
 					case CONVERTIR:
-						personnage.soigner();
+						personnage.convertir();
 						break;
 					case SE_DEPLACER:
 						personnage.seDeplacer();
@@ -542,6 +542,7 @@ public class Partie extends Parent{
 		// Je supprime les morts de la liste
 		for (int i = 0; i < personnages.size(); i++) {
 			if (!personnages.get(i).estVivant()) {
+				personnages.get(i).getProprietaire().retirerUnPersonnage();
 				personnages.remove(i);
 			}
 
@@ -655,10 +656,10 @@ public Action getNouvelleAction() {
 				System.out.println("z,q,s,d -> haut, gauche, bas, droite");
 				System.out.println("0 -> ne rien faire");
 				System.out.println("1 -> attaquer");
-				System.out.println("2 -> récolter");
+				System.out.println("2 -> rï¿½colter");
 				System.out.println("3 -> soigner");
 				System.out.println("4 -> convertir");
-				System.out.println("5 -> créer unité");
+				System.out.println("5 -> crï¿½er unitï¿½");
 				System.out.println("6 -> attaquer batiment");
 				System.out.println("? ou n'importe quelles autres touches -> afficher ce manuel puis saisir une action correcte.");
 				
