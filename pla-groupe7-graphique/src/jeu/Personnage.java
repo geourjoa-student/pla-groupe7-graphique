@@ -171,7 +171,30 @@ public int getRole(){
 	}
 	
 	public void recevoirSoin(int nbSoin){
-		pointsDeVie+=nbSoin;
+		if(this instanceof Heros){
+			if(pointsDeVie + nbSoin >= Heros.VIE_STANDARD)
+				pointsDeVie = Heros.VIE_STANDARD;
+			else
+				pointsDeVie += nbSoin;
+		}
+		if(this instanceof Guerrier){
+			if(pointsDeVie + nbSoin >= Guerrier.VIE_STANDARD)
+				pointsDeVie = Guerrier.VIE_STANDARD;
+			else
+				pointsDeVie += nbSoin;
+		}
+		if(this instanceof Moine){
+			if(pointsDeVie + nbSoin >= Moine.VIE_STANDARD)
+				pointsDeVie = Moine.VIE_STANDARD;
+			else
+				pointsDeVie += nbSoin;
+		}
+		if(this instanceof Paysan){
+			if(pointsDeVie + nbSoin >= Paysan.VIE_STANDARD)
+				pointsDeVie = Paysan.VIE_STANDARD;
+			else
+				pointsDeVie += nbSoin;
+		}
 	}
 	
 	public boolean estVivant (){
