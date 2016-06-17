@@ -19,7 +19,12 @@ public class Bibliotheque {
 	public static Image guerrier =new Image(Main.class.getResourceAsStream("/images/guerrier.gif"));
 	public static Image moine =new Image(Main.class.getResourceAsStream("/images/moine.gif"));
 	public static Image paysan =new Image(Main.class.getResourceAsStream("/images/paysan.gif"));
-	public static Image heros =new Image(Main.class.getResourceAsStream("/images/heros2.gif"));
+	public static Image heros =new Image(Main.class.getResourceAsStream("/images/heros.gif"));
+	
+	public static Image guerrierRouge =new Image(Main.class.getResourceAsStream("/images/guerrier_rouge.gif"));
+	public static Image moineRouge =new Image(Main.class.getResourceAsStream("/images/moine_rouge.gif"));
+	public static Image paysanRouge =new Image(Main.class.getResourceAsStream("/images/paysan_rouge.gif"));
+	public static Image herosRouge =new Image(Main.class.getResourceAsStream("/images/heros_rouge.gif"));
 	
 	public static Image ressources =new Image(Main.class.getResourceAsStream("/images/ressources.png"));
 	public static Image vie =new Image(Main.class.getResourceAsStream("/images/vie.png"));

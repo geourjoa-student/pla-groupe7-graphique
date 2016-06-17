@@ -27,7 +27,7 @@ import jeu.Main;
 public class PersonnageGraphique extends Parent {
 	
 	
-public  PersonnageGraphique(int abscisse, int ordonnee, Personnage perso){
+public  PersonnageGraphique(int abscisse, int ordonnee, Personnage perso, Partie partie){
 	final ImageView imageView;
 	
 	if (perso instanceof Guerrier){
@@ -45,7 +45,14 @@ public  PersonnageGraphique(int abscisse, int ordonnee, Personnage perso){
 			}
 			else
 				if (perso instanceof Heros){
+					if (perso.getProprietaire() == partie.getJoueur1())
+					{
 					imageView = new ImageView(Bibliotheque.heros);
+					}
+					else
+					{
+					imageView = new ImageView(Bibliotheque.herosRouge);
+					}
 				}
 				else
 				{
