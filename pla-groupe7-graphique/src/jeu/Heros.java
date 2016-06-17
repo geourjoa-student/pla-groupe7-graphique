@@ -6,7 +6,7 @@ public class Heros extends Personnage {
 
 	// TODO C'est ici que l'on peut paramètrer les capacités de bases
 	private static final int FORCE_HEROS_STANDARD = 30;
-	private static final int VIE_HEROS_STANDARD = 200;
+	public static final int VIE_STANDARD = 200;
 	private static final int CAPACITE_RECOLTE_STANDARD = 20;
 	private static final int CAPACITE_SOIN_STANDARD = 50;
 	private static final int TAUX_DE_REUSSITE_DE_CONVERSION_STANDARD = 20;
@@ -16,7 +16,7 @@ public class Heros extends Personnage {
 		this.caseSousLePersonnage = caseSousLeJoueur;
 		caseSousLeJoueur.placerPersonnage(this);
 		proprietaire = joueur;
-		pointsDeVie = VIE_HEROS_STANDARD;
+		pointsDeVie = VIE_STANDARD;
 		force = FORCE_HEROS_STANDARD;
 		recolte = CAPACITE_RECOLTE_STANDARD;
 		soin = CAPACITE_SOIN_STANDARD;
