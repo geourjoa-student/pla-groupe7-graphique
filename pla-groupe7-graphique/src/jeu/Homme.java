@@ -22,6 +22,8 @@ public abstract class Homme extends Personnage {
 
 	public Action getAction() {
 		List<Condition> conditions = new ArrayList<>();
+		
+		//On teste les situations possibles et on leve les conditions qui sont trouvées. Si il y a des doublons cela ne pose pas de problème à priori
 
 		conditions.add(Condition.AUCUNE_CONDITION);
 
