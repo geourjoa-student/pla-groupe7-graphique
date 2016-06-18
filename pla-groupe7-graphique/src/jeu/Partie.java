@@ -173,7 +173,7 @@ public class Partie extends Parent{
 					
 				}
 	        
-	            if (! estTermine()){
+	            if (! estTermine() && !(joueur1.estMort()) && !(joueur2.estMort()) ){
 	            jouerTour();
 	            }
 	            else
