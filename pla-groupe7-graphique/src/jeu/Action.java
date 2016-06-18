@@ -3,7 +3,7 @@ package jeu;
 public enum Action {
 
 
-	NE_RIEN_FAIRE (0, Type.ROCHER), 
+	NE_RIEN_FAIRE (0, Type.ARBRE), 
 	ALLER_A_GAUCHE (1, Type.ARBRE),
 	ALLER_A_DROITE (2, Type.SOUCHE),
 	ALLER_EN_HAUT (3, Type.CHAMPS),
