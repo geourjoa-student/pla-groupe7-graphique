@@ -58,10 +58,13 @@ public class Main extends Application {
         
         Partie p = new Partie(new InterfaceGraphique(), new JoueurConsoleZQSD("Toto", "automates1.xml"), new JoueurConsoleZQSD("Titi", "automates2.xml"),root);
    
-        Particule part = new Particule(Color.WHITE, 1000, 500, 1000, 1000, -100, 3500);
+        //Particule part = new Particule(Color.WHITE, 1000, 500, 1000, 1000, -100, 3500);
        
         root.getChildren().add(p);
-        root.getChildren().add(part);
+        
+        //root.getChildren().add(part);
+        
+       
       
         
 		
