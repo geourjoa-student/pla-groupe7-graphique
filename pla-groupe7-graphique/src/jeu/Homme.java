@@ -28,7 +28,8 @@ public abstract class Homme extends Personnage {
 		if (caseSousLePersonnage.estRecoltable() && !caseSousLePersonnage.caseAllie(proprietaire))
 			conditions.add(Condition.RESSOURCE_SOUS_CASE);
 
-		
+		if (caseSousLePersonnage.getTypeDeLaCase()==Type.RUINES && !caseSousLePersonnage.caseAllie(proprietaire))
+			conditions.add(Condition.RUINE_ENNEMI_SOUS_CASE);
 		
 		if (caseSousLePersonnage.getCaseEnHaut().estBatiment() && caseSousLePersonnage.getCaseEnHaut().caseAllie(proprietaire)) {
 			conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
