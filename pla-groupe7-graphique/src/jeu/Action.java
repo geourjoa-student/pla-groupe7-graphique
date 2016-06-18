@@ -14,7 +14,7 @@ public enum Action {
 	SOIGNER (9, Type.HOPITAL),
 	CONVERTIR (10, Type.EGLISE),
 	CREER_UNITE (11, Type.CHAMPS),
-	ATTAQUER_BATIMENT (12, Type.CASERNE), 
+	ATTAQUER_BATIMENT (12, Type.ARMURERIE), 
 	REPARER(13, Type.HERBE);
 	
 	private int codeAction;
@@ -42,6 +42,8 @@ public enum Action {
 	}
 	
 	public static Action typeToAction (Type type){
+		
+
 		Action actions[] = Action.values();
 		for (int i = 0; i < actions.length; i++) {
 			if(actions[i].getTypeCaseAssociee()== type){

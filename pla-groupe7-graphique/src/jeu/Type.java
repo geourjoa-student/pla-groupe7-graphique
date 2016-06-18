@@ -8,6 +8,7 @@ public enum Type {
 	ROCHER,
 	SOUCHE,
 	CASERNE,
+	ARMURERIE,
 	FERME,
 	POLYTECH,
 	EGLISE,
