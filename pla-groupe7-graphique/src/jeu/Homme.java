@@ -22,60 +22,64 @@ public abstract class Homme extends Personnage {
 
 	public Action getAction() {
 		List<Condition> conditions = new ArrayList<>();
-		
-		//On teste les situations possibles et on leve les conditions qui sont trouvées. Si il y a des doublons cela ne pose pas de problème à priori
+
+		// On teste les situations possibles et on leve les conditions qui sont
+		// trouvées. Si il y a des doublons cela ne pose pas de problème à
+		// priori
 
 		conditions.add(Condition.AUCUNE_CONDITION);
 
 		if (caseSousLePersonnage.estRecoltable() && !caseSousLePersonnage.caseAllie(proprietaire))
 			conditions.add(Condition.RESSOURCE_SOUS_CASE);
 
-		if (caseSousLePersonnage.getTypeDeLaCase()==Type.RUINES && !caseSousLePersonnage.caseAllie(proprietaire))
+		if (caseSousLePersonnage.getTypeDeLaCase() == Type.RUINES && !caseSousLePersonnage.caseAllie(proprietaire))
 			conditions.add(Condition.RUINE_ENNEMIE_SOUS_CASE);
-		
-		if (caseSousLePersonnage.getCaseEnHaut().estBatiment()){
 
-			if(caseSousLePersonnage.getCaseEnHaut().caseAllie(proprietaire)) {
+		if (caseSousLePersonnage.getCaseEnHaut().estBatiment()) {
+
+			if (caseSousLePersonnage.getCaseEnHaut().caseAllie(proprietaire)) {
 				conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
-			}else {
+			} else {
 				conditions.add(Condition.BATIMENT_ENNEMI_ADJACENT);
 			}
 		}
-		
 
-		if (caseSousLePersonnage.getCaseEnBas().estBatiment()){
+		if (caseSousLePersonnage.getCaseEnBas().estBatiment()) {
 
-			if(caseSousLePersonnage.getCaseEnBas().caseAllie(proprietaire)) {
+			if (caseSousLePersonnage.getCaseEnBas().caseAllie(proprietaire)) {
 				conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
-			}else {
+			} else {
 				conditions.add(Condition.BATIMENT_ENNEMI_ADJACENT);
 			}
 		}
-		
-		if (caseSousLePersonnage.getCaseAGauche().estBatiment()){
 
-			if(caseSousLePersonnage.getCaseAGauche().caseAllie(proprietaire)) {
+		if (caseSousLePersonnage.getCaseAGauche().estBatiment()) {
+
+			if (caseSousLePersonnage.getCaseAGauche().caseAllie(proprietaire)) {
 				conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
-			}else {
+			} else {
 				conditions.add(Condition.BATIMENT_ENNEMI_ADJACENT);
 			}
 		}
-		
-		if (caseSousLePersonnage.getCaseADroite().estBatiment()){
 
-			if(caseSousLePersonnage.getCaseADroite().caseAllie(proprietaire)) {
+		if (caseSousLePersonnage.getCaseADroite().estBatiment()) {
+
+			if (caseSousLePersonnage.getCaseADroite().caseAllie(proprietaire)) {
 				conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
-			}else {
+			} else {
 				conditions.add(Condition.BATIMENT_ENNEMI_ADJACENT);
 			}
 		}
 
 		if (caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent() != null) {
-			if (!allie(caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent()))
+			if (!allie(caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent())) {
 				conditions.add(Condition.ENNEMI_ADJACENT);
-			else {
-				conditions.add(Condition.ALLIE_ADJACENT);
-				if(!caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent().estEnPleineSante()){
+				if (caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent() instanceof Heros || caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent() instanceof Guerrier) {
+					conditions.add(Condition.ENNEMI_ADJACENT_MENACANT);
+
+				}
+			} else {
+				if (!caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent().estEnPleineSante()) {
 					conditions.add(Condition.ALLIE_NON_FULL_VIE);
 				}
 			}
@@ -83,22 +87,30 @@ public abstract class Homme extends Personnage {
 		}
 
 		if (caseSousLePersonnage.getCaseEnBas().getPersonnagePresent() != null) {
-			if (!allie(caseSousLePersonnage.getCaseEnBas().getPersonnagePresent()))
+			if (!allie(caseSousLePersonnage.getCaseEnBas().getPersonnagePresent())) {
 				conditions.add(Condition.ENNEMI_ADJACENT);
-			else {
-				conditions.add(Condition.ALLIE_ADJACENT);
-				if(!caseSousLePersonnage.getCaseEnBas().getPersonnagePresent().estEnPleineSante()){
+				if (caseSousLePersonnage.getCaseEnBas().getPersonnagePresent() instanceof Heros || caseSousLePersonnage.getCaseEnBas().getPersonnagePresent() instanceof Guerrier) {
+					conditions.add(Condition.ENNEMI_ADJACENT_MENACANT);
+
+				}
+			} else {
+				if (!caseSousLePersonnage.getCaseEnBas().getPersonnagePresent().estEnPleineSante()) {
 					conditions.add(Condition.ALLIE_NON_FULL_VIE);
 				}
 			}
 		}
 
 		if (caseSousLePersonnage.getCaseAGauche().getPersonnagePresent() != null) {
-			if (!allie(caseSousLePersonnage.getCaseAGauche().getPersonnagePresent()))
+			if (!allie(caseSousLePersonnage.getCaseAGauche().getPersonnagePresent())){
 				conditions.add(Condition.ENNEMI_ADJACENT);
+				if (caseSousLePersonnage.getCaseAGauche().getPersonnagePresent() instanceof Heros || caseSousLePersonnage.getCaseAGauche().getPersonnagePresent() instanceof Guerrier) {
+					conditions.add(Condition.ENNEMI_ADJACENT_MENACANT);
+
+				}
+			}
+				
 			else {
-				conditions.add(Condition.ALLIE_ADJACENT);
-				if(!caseSousLePersonnage.getCaseAGauche().getPersonnagePresent().estEnPleineSante()){
+				if (!caseSousLePersonnage.getCaseAGauche().getPersonnagePresent().estEnPleineSante()) {
 					conditions.add(Condition.ALLIE_NON_FULL_VIE);
 				}
 			}
@@ -106,11 +118,16 @@ public abstract class Homme extends Personnage {
 		}
 
 		if (caseSousLePersonnage.getCaseADroite().getPersonnagePresent() != null) {
-			if (!allie(caseSousLePersonnage.getCaseADroite().getPersonnagePresent()))
+			if (!allie(caseSousLePersonnage.getCaseADroite().getPersonnagePresent())){
 				conditions.add(Condition.ENNEMI_ADJACENT);
+				if (caseSousLePersonnage.getCaseADroite().getPersonnagePresent() instanceof Heros || caseSousLePersonnage.getCaseADroite().getPersonnagePresent() instanceof Guerrier) {
+					conditions.add(Condition.ENNEMI_ADJACENT_MENACANT);
+
+				}
+			}
+				
 			else {
-				conditions.add(Condition.ALLIE_ADJACENT);
-				if(!caseSousLePersonnage.getCaseADroite().getPersonnagePresent().estEnPleineSante()){
+				if (!caseSousLePersonnage.getCaseADroite().getPersonnagePresent().estEnPleineSante()) {
 					conditions.add(Condition.ALLIE_NON_FULL_VIE);
 				}
 			}
