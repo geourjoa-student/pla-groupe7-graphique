@@ -22,7 +22,7 @@ public class Main extends Application {
 		
 		primaryStage.setTitle("ATTACK ON BEHAVIOR");
         Group root = new Group();
-        Scene scene = new Scene(root, 1368, 690, Color.GREEN);
+        Scene scene = new Scene(root, 1368, 690, Color.FORESTGREEN);
       /*  InterfaceGraphique inter = new InterfaceGraphique();
 		int tab[][] = { 
 				{1,1,1,0,1,0,1,0,0,1,1,0,1,1},
@@ -56,7 +56,7 @@ public class Main extends Application {
         
         //InterfaceGraphique i = new InterfaceGraphique();
         
-        Partie p = new Partie(new InterfaceGraphique(), new JoueurConsoleZQSD("Toto", "automates1.xml"), new JoueurConsoleZQSD("Titi", "automates2.xml"));
+        Partie p = new Partie(new InterfaceGraphique(), new JoueurConsoleZQSD("Toto", "automates1.xml"), new JoueurConsoleZQSD("Titi", "automates2.xml"),root);
    
         root.getChildren().add(p);
 		
