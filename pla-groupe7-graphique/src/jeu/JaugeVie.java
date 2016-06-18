@@ -8,7 +8,7 @@ public class JaugeVie extends Parent {
 		final ImageView imageView = new ImageView(Bibliotheque.vie);
 		imageView.setX(abscisse+7);
 		imageView.setY(ordonnee);
-		imageView.getTransforms().add(new Scale(vie/100.0,1,abscisse+20,ordonnee));
+		imageView.getTransforms().add(new Scale(vie/150.0,1,abscisse+25,ordonnee));
 		
 		this.getChildren().add(imageView);
 	}
