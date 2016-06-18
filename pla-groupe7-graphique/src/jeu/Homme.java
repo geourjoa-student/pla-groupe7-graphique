@@ -31,22 +31,43 @@ public abstract class Homme extends Personnage {
 			conditions.add(Condition.RESSOURCE_SOUS_CASE);
 
 		if (caseSousLePersonnage.getTypeDeLaCase()==Type.RUINES && !caseSousLePersonnage.caseAllie(proprietaire))
-			conditions.add(Condition.RUINE_ENNEMI_SOUS_CASE);
+			conditions.add(Condition.RUINE_ENNEMIE_SOUS_CASE);
 		
-		if (caseSousLePersonnage.getCaseEnHaut().estBatiment() && caseSousLePersonnage.getCaseEnHaut().caseAllie(proprietaire)) {
-			conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
-		}
+		if (caseSousLePersonnage.getCaseEnHaut().estBatiment()){
 
-		if (caseSousLePersonnage.getCaseEnBas().estBatiment() && caseSousLePersonnage.getCaseEnBas().caseAllie(proprietaire)) {
-			conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
+			if(caseSousLePersonnage.getCaseEnHaut().caseAllie(proprietaire)) {
+				conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
+			}else {
+				conditions.add(Condition.BATIMENT_ENNEMI_ADJACENT);
+			}
 		}
+		
 
-		if (caseSousLePersonnage.getCaseADroite().estBatiment() && caseSousLePersonnage.getCaseADroite().caseAllie(proprietaire)) {
-			conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
+		if (caseSousLePersonnage.getCaseEnBas().estBatiment()){
+
+			if(caseSousLePersonnage.getCaseEnBas().caseAllie(proprietaire)) {
+				conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
+			}else {
+				conditions.add(Condition.BATIMENT_ENNEMI_ADJACENT);
+			}
 		}
+		
+		if (caseSousLePersonnage.getCaseAGauche().estBatiment()){
 
-		if (caseSousLePersonnage.getCaseAGauche().estBatiment() && caseSousLePersonnage.getCaseAGauche().caseAllie(proprietaire)) {
-			conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
+			if(caseSousLePersonnage.getCaseAGauche().caseAllie(proprietaire)) {
+				conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
+			}else {
+				conditions.add(Condition.BATIMENT_ENNEMI_ADJACENT);
+			}
+		}
+		
+		if (caseSousLePersonnage.getCaseADroite().estBatiment()){
+
+			if(caseSousLePersonnage.getCaseADroite().caseAllie(proprietaire)) {
+				conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
+			}else {
+				conditions.add(Condition.BATIMENT_ENNEMI_ADJACENT);
+			}
 		}
 
 		if (caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent() != null) {
