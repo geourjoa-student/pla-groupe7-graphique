@@ -4,8 +4,8 @@ public enum Action {
 
 
 	NE_RIEN_FAIRE (0, Type.ARBRE), 
-	ALLER_A_GAUCHE (1, Type.ARBRE),
-	ALLER_A_DROITE (2, Type.SOUCHE),
+	ALLER_A_GAUCHE (1, Type.ROCHER),
+	ALLER_A_DROITE (2, Type.ROCHER),
 	ALLER_EN_HAUT (3, Type.CHAMPS),
 	ALLER_EN_BAS (4, Type.HERBE),
 	SE_DEPLACER (5, Type.RUINES),
@@ -14,7 +14,7 @@ public enum Action {
 	SOIGNER (9, Type.HOPITAL),
 	CONVERTIR (10, Type.EGLISE),
 	CREER_UNITE (11, Type.CHAMPS),
-	ATTAQUER_BATIMENT (12, Type.CASERNE), 
+	ATTAQUER_BATIMENT (12, Type.SOUCHE), 
 	REPARER(13, Type.HERBE);
 	
 	private int codeAction;
