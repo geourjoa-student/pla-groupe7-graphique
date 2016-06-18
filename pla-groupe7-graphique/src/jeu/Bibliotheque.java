@@ -16,12 +16,14 @@ public class Bibliotheque {
 	public static Image hopital =new Image(Main.class.getResourceAsStream("/images/hopital.png"));
 	public static Image ferme =new Image(Main.class.getResourceAsStream("/images/ferme.png"));
 	public static Image caserne = new Image(Main.class.getResourceAsStream("/images/caserne.png"));
+	public static Image armurerie = new Image(Main.class.getResourceAsStream("/images/arsenal.png"));
 
 	public static Image tourRouge = new Image(Main.class.getResourceAsStream("/images/tour_rouge.png"));
 	public static Image polytechRouge =new Image(Main.class.getResourceAsStream("/images/polytech_rouge.png"));
 	public static Image hopitalRouge =new Image(Main.class.getResourceAsStream("/images/hopital_rouge.png"));
 	public static Image fermeRouge =new Image(Main.class.getResourceAsStream("/images/ferme_rouge.png"));
 	public static Image caserneRouge = new Image(Main.class.getResourceAsStream("/images/caserne_rouge.png"));
+	public static Image armurerieRouge = new Image(Main.class.getResourceAsStream("/images/arsenal_rouge.png"));
 
 	public static Image guerrier =new Image(Main.class.getResourceAsStream("/images/guerrier.gif"));
 	public static Image moine =new Image(Main.class.getResourceAsStream("/images/moine.gif"));

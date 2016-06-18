@@ -103,6 +103,16 @@ public  DecorGraphique(int abscisse, int ordonnee, Case lacase, Partie partie){
 		}
 		break;
 		
+	case ARMURERIE:
+		if (lacase.getProprietaire() == partie.getJoueur1()){
+		imageView = new ImageView(Bibliotheque.armurerie);
+		}
+		else
+		{
+			imageView = new ImageView(Bibliotheque.armurerieRouge);
+		}
+		break;
+		
 	default:
 		imageView = new ImageView(Bibliotheque.herbe);
 		break;
