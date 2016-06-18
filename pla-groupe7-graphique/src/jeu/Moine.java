@@ -11,7 +11,7 @@ public class Moine extends Homme{
 		pointsDeVie = 150; // TODO Valeurs arbitraires
 		force=5;
 		recolte=10;
-		soin = 50;
+		soin = 30;
 		convertir=33;
 	}
 }
