@@ -111,44 +111,44 @@ public class Partie extends Parent{
 					break;
 					
 				case "1":
-					bufferJ2 =  Action.ATTAQUER;
-					break;
-				case "2":
 					bufferJ2 =  Action.RECOLTER;
 					break;
+				case "2":
+					bufferJ2 =  Action.ATTAQUER;
+					break;
 				case "3":
-					bufferJ2 =  Action.SOIGNER;
+					bufferJ2 =  Action.ATTAQUER_BATIMENT;
 					break;
 				case "4":
-					bufferJ2 =  Action.CONVERTIR;
-					break;
-				case "5":
 					bufferJ2 =  Action.CREER_UNITE;
 					break;
+				case "5":
+					bufferJ2 =  Action.CONVERTIR;
+					break;
 				case "6":
-					bufferJ2 =  Action.ATTAQUER_BATIMENT;
+					bufferJ2 =  Action.SOIGNER;
 					break;
 				case "7":
 					bufferJ2 =  Action.REPARER;
 					break;
 					
 				case "&":
-					bufferJ1 =  Action.ATTAQUER;
-					break;
-				case "É":
 					bufferJ1 =  Action.RECOLTER;
 					break;
+				case "É":
+					bufferJ1 =  Action.ATTAQUER;
+					break;
 				case "\"":
-					bufferJ1 =  Action.SOIGNER;
+					bufferJ1 =  Action.ATTAQUER_BATIMENT;
 					break;
 				case "'":
-					bufferJ1 =  Action.CONVERTIR;
-					break;
-				case "(":
 					bufferJ1 =  Action.CREER_UNITE;
 					break;
+				case "(":
+					bufferJ1 =  Action.CONVERTIR;
+					break;
 				case "-":
-					bufferJ1 =  Action.ATTAQUER_BATIMENT;
+					bufferJ1 =  Action.SOIGNER;
 					break;
 				case "È":
 					bufferJ1 =  Action.REPARER;
@@ -694,14 +694,10 @@ public void afficherMap(Case[][] decor ) {
 		
 	}
 	
-	AffichageRessources affichageRessources = new AffichageRessources(150, 400, joueur1);
-	affichageRessources.getTransforms().add(new Scale(1.5,1.5));
+	AffichageRessources affichageRessources = new AffichageRessources(10, 400, joueur1, joueur2);
+	affichageRessources.getTransforms().add(new Scale(1.62,1.5));
 	this.getChildren().add(affichageRessources);
-	
-	AffichageRessources affichageRessources2 = new AffichageRessources(650, 400, joueur2);
-	affichageRessources2.getTransforms().add(new Scale(1.5,1.5));
-	this.getChildren().add(affichageRessources2);
-	
+
 } 
 
 
