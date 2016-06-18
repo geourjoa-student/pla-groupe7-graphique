@@ -124,7 +124,7 @@ public abstract class Joueur {
 		if(nourriture>=COUT_GUERRIER){
 			nourriture-=COUT_GUERRIER;
 			nombrePersonnage++;
-			return new Guerrier(this, caseInsertion, automateGuerrier);
+			return new Guerrier(this, caseInsertion, automateGuerrier.clone());
 		}
 		return null;
 	}
@@ -133,7 +133,7 @@ public abstract class Joueur {
 		if(nourriture>=COUT_MOINE){
 			nourriture-=COUT_MOINE;
 			nombrePersonnage++;
-			return new Moine(this, caseInsertion, automateMoine);
+			return new Moine(this, caseInsertion, automateMoine.clone());
 		}
 		return null;
 	}
@@ -142,7 +142,7 @@ public abstract class Joueur {
 		if(nourriture>=COUT_PAYSAN){
 			nourriture-=COUT_PAYSAN;
 			nombrePersonnage++;
-			return new Paysan(this, caseInsertion, automatePaysan);
+			return new Paysan(this, caseInsertion, automatePaysan.clone());
 		}
 		return null;
 	}
