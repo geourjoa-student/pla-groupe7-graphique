@@ -95,5 +95,10 @@ public class Heros extends Personnage {
 		}
 
 	}
+	
+	@Override
+	public boolean estEnPleineSante() {
+		return (pointsDeVie==VIE_STANDARD);
+	}
 
 }

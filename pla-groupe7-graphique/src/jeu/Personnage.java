@@ -35,9 +35,11 @@ public abstract class Personnage {
 		return proprietaire;
 	}
 
-public int getRole(){
-	return role;
-}
+	public int getRole(){
+		return role;
+	}
+	
+	public abstract boolean estEnPleineSante();
 	/*
 	 * Fonctions de déplacement
 	 * 

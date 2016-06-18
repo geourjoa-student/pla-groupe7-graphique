@@ -14,4 +14,9 @@ public class Moine extends Homme{
 		soin = 30;
 		convertir=33;
 	}
+
+	@Override
+	public boolean estEnPleineSante() {
+		return (pointsDeVie==VIE_STANDARD);
+	}
 }

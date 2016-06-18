@@ -14,5 +14,10 @@ public class Paysan extends Homme{
 		soin = 0;
 		convertir = 0;
 	}
+	
+	@Override
+	public boolean estEnPleineSante() {
+		return (pointsDeVie==VIE_STANDARD);
+	}
 
 }

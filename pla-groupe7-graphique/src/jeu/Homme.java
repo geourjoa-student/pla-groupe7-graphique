@@ -29,69 +29,21 @@ public abstract class Homme extends Personnage {
 			conditions.add(Condition.RESSOURCE_SOUS_CASE);
 
 		
-
+		
 		if (caseSousLePersonnage.getCaseEnHaut().estBatiment() && caseSousLePersonnage.getCaseEnHaut().caseAllie(proprietaire)) {
-			switch (caseSousLePersonnage.getCaseEnHaut().getTypeDeLaCase()) {
-				case POLYTECH:
-					conditions.add(Condition.POLYTECH_ADJACENTE);
-					break;
-				case CASERNE:
-					conditions.add(Condition.CASERNE_ADJACENTE);
-					break;
-				case EGLISE:
-					conditions.add(Condition.EGLISE_ADJACENTE);
-					break;
-				default:
-					break;
-			}
+			conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
 		}
-		
+
 		if (caseSousLePersonnage.getCaseEnBas().estBatiment() && caseSousLePersonnage.getCaseEnBas().caseAllie(proprietaire)) {
-			switch (caseSousLePersonnage.getCaseEnBas().getTypeDeLaCase()) {
-				case POLYTECH:
-					conditions.add(Condition.POLYTECH_ADJACENTE);
-					break;
-				case CASERNE:
-					conditions.add(Condition.CASERNE_ADJACENTE);
-					break;
-				case EGLISE:
-					conditions.add(Condition.EGLISE_ADJACENTE);
-					break;
-				default:
-					break;
-			}
+			conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
 		}
-		
+
 		if (caseSousLePersonnage.getCaseADroite().estBatiment() && caseSousLePersonnage.getCaseADroite().caseAllie(proprietaire)) {
-			switch (caseSousLePersonnage.getCaseADroite().getTypeDeLaCase()) {
-				case POLYTECH:
-					conditions.add(Condition.POLYTECH_ADJACENTE);
-					break;
-				case CASERNE:
-					conditions.add(Condition.CASERNE_ADJACENTE);
-					break;
-				case EGLISE:
-					conditions.add(Condition.EGLISE_ADJACENTE);
-					break;
-				default:
-					break;
-			}
+			conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
 		}
-		
+
 		if (caseSousLePersonnage.getCaseAGauche().estBatiment() && caseSousLePersonnage.getCaseAGauche().caseAllie(proprietaire)) {
-			switch (caseSousLePersonnage.getCaseAGauche().getTypeDeLaCase()) {
-				case POLYTECH:
-					conditions.add(Condition.POLYTECH_ADJACENTE);
-					break;
-				case CASERNE:
-					conditions.add(Condition.CASERNE_ADJACENTE);
-					break;
-				case EGLISE:
-					conditions.add(Condition.EGLISE_ADJACENTE);
-					break;
-				default:
-					break;
-			}
+			conditions.add(Condition.BATIMENT_ALLIE_ADJACENT);
 		}
 
 		if (caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent() != null) {
@@ -99,6 +51,9 @@ public abstract class Homme extends Personnage {
 				conditions.add(Condition.ENNEMI_ADJACENT);
 			else {
 				conditions.add(Condition.ALLIE_ADJACENT);
+				if(!caseSousLePersonnage.getCaseEnHaut().getPersonnagePresent().estEnPleineSante()){
+					conditions.add(Condition.ALLIE_NON_FULL_VIE);
+				}
 			}
 
 		}
@@ -108,6 +63,9 @@ public abstract class Homme extends Personnage {
 				conditions.add(Condition.ENNEMI_ADJACENT);
 			else {
 				conditions.add(Condition.ALLIE_ADJACENT);
+				if(!caseSousLePersonnage.getCaseEnBas().getPersonnagePresent().estEnPleineSante()){
+					conditions.add(Condition.ALLIE_NON_FULL_VIE);
+				}
 			}
 		}
 
@@ -116,6 +74,9 @@ public abstract class Homme extends Personnage {
 				conditions.add(Condition.ENNEMI_ADJACENT);
 			else {
 				conditions.add(Condition.ALLIE_ADJACENT);
+				if(!caseSousLePersonnage.getCaseAGauche().getPersonnagePresent().estEnPleineSante()){
+					conditions.add(Condition.ALLIE_NON_FULL_VIE);
+				}
 			}
 
 		}
@@ -125,6 +86,9 @@ public abstract class Homme extends Personnage {
 				conditions.add(Condition.ENNEMI_ADJACENT);
 			else {
 				conditions.add(Condition.ALLIE_ADJACENT);
+				if(!caseSousLePersonnage.getCaseADroite().getPersonnagePresent().estEnPleineSante()){
+					conditions.add(Condition.ALLIE_NON_FULL_VIE);
+				}
 			}
 		}
 
