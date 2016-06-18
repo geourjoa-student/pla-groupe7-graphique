@@ -33,7 +33,7 @@ public class Bibliotheque {
 	public static Image paysanRouge =new Image(Main.class.getResourceAsStream("/images/paysan_rouge.gif"));
 	public static Image herosRouge =new Image(Main.class.getResourceAsStream("/images/heros_rouge.gif"));
 	
-	public static Image ressources =new Image(Main.class.getResourceAsStream("/images/ressources.png"));
+	public static Image ressources =new Image(Main.class.getResourceAsStream("/images/interface.png"));
 	public static Image vie =new Image(Main.class.getResourceAsStream("/images/vie.png"));
 
 	
