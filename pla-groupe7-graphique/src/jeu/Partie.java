@@ -6,10 +6,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 import automate.Automate;
+import javafx.animation.FadeTransition;
 import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.transform.Scale;
+import javafx.util.Duration;
 
 public class Partie extends Parent{
 
@@ -49,7 +52,7 @@ public class Partie extends Parent{
 	public Joueur getJoueur2(){
 		return joueur2;
 	}
-	public Partie(InterfaceUtilisateur interfaceUtilisateur, Joueur joueur1, Joueur joueur2) {
+	public Partie(InterfaceUtilisateur interfaceUtilisateur, Joueur joueur1, Joueur joueur2, Group root) {
 			
 		this.interfaceUtilisateur = interfaceUtilisateur;
 		this.joueur1 = joueur1;
@@ -178,7 +181,12 @@ public class Partie extends Parent{
 	            }
 	            else
 	            {
-	            	//TODO mettre un screen de fin de partie
+	            	FadeTransition ft = new FadeTransition(Duration.millis(1000), root);
+	            	ft.setFromValue(1.0);
+	            	ft.setToValue(0);
+	            	ft.setCycleCount(1);
+	            	ft.setAutoReverse(true);
+	            	ft.play();
 	            }
 	        
 	            
