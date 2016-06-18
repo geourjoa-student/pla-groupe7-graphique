@@ -181,6 +181,7 @@ public class Partie extends Parent{
 	            }
 	            else
 	            {
+	            	jouerTour();
 	            	FadeTransition ft = new FadeTransition(Duration.millis(1000), root);
 	            	ft.setFromValue(1.0);
 	            	ft.setToValue(0);
