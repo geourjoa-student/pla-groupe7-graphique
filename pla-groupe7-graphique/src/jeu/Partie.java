@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.transform.Scale;
 import javafx.util.Duration;
 
@@ -181,13 +182,17 @@ public class Partie extends Parent{
 	            }
 	            else
 	            {
+	            	bufferJ1 = Action.NE_RIEN_FAIRE;
+					bufferJ2 = Action.NE_RIEN_FAIRE;
 	            	jouerTour();
-	            	FadeTransition ft = new FadeTransition(Duration.millis(1000), root);
+	            	Particule part = new Particule(Color.WHITE, 2000, 500, 1000, 1000, -100, 3500);
+	                root.getChildren().add(part);
+	            	/*FadeTransition ft = new FadeTransition(Duration.millis(1000), root);
 	            	ft.setFromValue(1.0);
 	            	ft.setToValue(0);
 	            	ft.setCycleCount(1);
 	            	ft.setAutoReverse(true);
-	            	ft.play();
+	            	ft.play();*/
 	            }
 	        
 	            
