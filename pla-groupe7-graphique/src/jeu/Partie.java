@@ -12,6 +12,9 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Scale;
 import javafx.util.Duration;
 
@@ -186,6 +189,29 @@ public class Partie extends Parent{
 					bufferJ2 = Action.NE_RIEN_FAIRE;
 	            	jouerTour();
 	            	Particule part = new Particule(Color.WHITE, 2000, 500, 1000, 1000, -100, 3500);
+	            	final Font font = new Font("Calibri", 75);
+	            	if(joueur2.estMort()){
+	            		final Text text = new Text("Joueur 1 "); 
+	                	text.setLayoutX(430); 
+	                	text.setLayoutY(265); 
+	                	text.setFill(Color.BLUE); 
+	                	text.setFont(font);
+	                	root.getChildren().add(text);
+	            	}
+	            	else{
+	            		final Text text = new Text("Joueur 2 "); 
+	                	text.setLayoutX(430); 
+	                	text.setLayoutY(265); 
+	                	text.setFill(Color.RED); 
+	                	text.setFont(font);
+	                	root.getChildren().add(text);
+	            	}
+            		final Text text2 = new Text("remporte la partie!"); 
+                	text2.setLayoutX(720); 
+                	text2.setLayoutY(265);
+                	text2.setFont(font);
+                	text2.setFill(Color.WHITE); 
+                	root.getChildren().add(text2);
 	                root.getChildren().add(part);
 	            	/*FadeTransition ft = new FadeTransition(Duration.millis(1000), root);
 	            	ft.setFromValue(1.0);
