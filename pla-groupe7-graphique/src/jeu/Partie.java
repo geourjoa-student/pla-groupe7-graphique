@@ -213,6 +213,15 @@ public class Partie extends Parent{
                 	text2.setFill(Color.WHITE); 
                 	root.getChildren().add(text2);
 	                root.getChildren().add(part);
+	                MenuButton btnRejouer = new MenuButton("REJOUER");
+	                MenuButton btnRetour = new MenuButton("RETOUR");
+	                btnRejouer.setTranslateX(700);
+	                btnRejouer.setTranslateY(320);
+	                btnRetour.setTranslateX(700);
+	                btnRetour.setTranslateY(390);
+	                root.getChildren().add(btnRejouer);
+	                root.getChildren().add(btnRetour);
+	                
 	            	/*FadeTransition ft = new FadeTransition(Duration.millis(1000), root);
 	            	ft.setFromValue(1.0);
 	            	ft.setToValue(0);

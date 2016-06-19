@@ -286,47 +286,6 @@ public class Main extends Application {
             getChildren().addAll( fond,menu0);
         }
     }
-
-    private static class MenuButton extends StackPane {
-        private Text text;
-
-        public MenuButton(String nom) {
-            text = new Text(nom);
-            //text.setFont(text.getFont().font(30));
-            text.setFill(Color.WHITE);
-            text.setStyle("-fx-font: 30 defused ;");
-
-            Rectangle fond = new Rectangle(200, 30);
-            fond.setOpacity(0.4);
-            fond.setFill(Color.BLACK);
-            //Flou 
-            fond.setEffect(new GaussianBlur(3.5));
-
-            //setAlignment(Pos.CENTER_LEFT);
-            
-            getChildren().addAll(fond, text);
-
-            setOnMouseEntered(event -> {
-                fond.setTranslateX(10);
-                text.setTranslateX(10);
-                fond.setFill(Color.GREEN);
-                text.setFill(Color.BLACK);
-            });
-
-            setOnMouseExited(event -> {
-                fond.setTranslateX(0);
-                text.setTranslateX(0);
-                fond.setFill(Color.BLACK);
-                text.setFill(Color.WHITE);
-            });
-            
-            DropShadow drop = new DropShadow(50, Color.BLACK);
-            drop.setInput(new Glow());
-
-            setOnMousePressed(event -> setEffect(drop));
-            setOnMouseReleased(event -> setEffect(null));
-        }
-    }
     
     private static class MenuButton2 extends StackPane {
         private Text text;
