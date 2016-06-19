@@ -142,7 +142,7 @@ public class Partie extends Parent{
 				case "&":
 					bufferJ1 =  Action.RECOLTER;
 					break;
-				case "Ã‰":
+				case "É":
 					bufferJ1 =  Action.ATTAQUER;
 					break;
 				case "\"":
@@ -157,7 +157,7 @@ public class Partie extends Parent{
 				case "-":
 					bufferJ1 =  Action.SOIGNER;
 					break;
-				case "Ãˆ":
+				case "È":
 					bufferJ1 =  Action.REPARER;
 					break;
 					
@@ -221,7 +221,6 @@ public class Partie extends Parent{
 	                btnRetour.setTranslateY(390);
 	                root.getChildren().add(btnRejouer);
 	                root.getChildren().add(btnRetour);
-	                
 	            	/*FadeTransition ft = new FadeTransition(Duration.millis(1000), root);
 	            	ft.setFromValue(1.0);
 	            	ft.setToValue(0);
