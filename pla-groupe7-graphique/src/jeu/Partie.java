@@ -7,18 +7,23 @@ import java.util.List;
 
 import automate.Automate;
 import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Scale;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import jeu.Main.GameMenu;
 
 public class Partie extends Parent{
 
@@ -261,12 +266,30 @@ public class Partie extends Parent{
             imgViewc.setY(180); 
             root.getChildren().add(imgViewc);
         }
-        MenuButton btnRejouer = new MenuButton("PLAY AGAIN");
+        MenuButton3 btnRejouer = new MenuButton3("PLAY AGAIN");
+        btnRejouer.setOnMouseClicked(event -> {
+        	Stage window = new Stage();
+        	Group root = new Group();
+    	    Scene scene = new Scene(root, 1700, 750, Color.GREEN);
+    	    Partie p = new Partie(new InterfaceGraphique(), new JoueurConsoleZQSD("Toto", "automates1.xml"), new JoueurConsoleZQSD("Titi", "automates2.xml"),root);
+    	   // Particule part = new Particule(Color.WHITE, 1000, 500, 1000, 1000, -100, 3500);
+            root.getChildren().add(p);
+         //   root.getChildren().add(part);
+    		
+    		//root.getTransforms().add(new Scale(0.82,0.82));
+    		//root.getTransforms().add(new Rotate(-38));
+            window.setScene(scene);
+    		p.requestFocus();
+    		window.show();
+    		Main.window.close();
+    	});
         MenuButton btnRetour = new MenuButton("BACK");
-        btnRejouer.setTranslateX(700);
+        btnRejouer.setTranslateX(665);
         btnRejouer.setTranslateY(350);
         btnRetour.setTranslateX(700);
         btnRetour.setTranslateY(420);
+    
+        
         root.getChildren().add(btnRejouer);
         root.getChildren().add(btnRetour);
     	/*FadeTransition ft = new FadeTransition(Duration.millis(1000), root);

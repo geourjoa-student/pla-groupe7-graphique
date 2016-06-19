@@ -45,7 +45,7 @@ import javafx.util.Duration;
 public class Main extends Application {
 
 	
-	Stage window =new Stage();
+	static Stage window =new Stage();
 	GameMenu menu = new GameMenu(window);
 	@Override
     public void start(Stage primaryStage)  {
@@ -104,7 +104,7 @@ public class Main extends Application {
         
 	}
 	
-	private class GameMenu extends Parent {
+	public class GameMenu extends Parent {
         public GameMenu(Stage window) {
         	
             VBox menu0 = new VBox(30);
