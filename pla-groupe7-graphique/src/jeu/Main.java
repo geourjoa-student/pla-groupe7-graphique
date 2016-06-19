@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
+import java.net.URL;
 
 import jeu.InterfaceGraphique;
 import jeu.JoueurConsoleZQSD;
@@ -236,10 +237,11 @@ public class Main extends Application {
             //On met du gros son
             MenuButton btnSound = new MenuButton("SOUND");
             btnSound.setOnMouseClicked(event -> {
-       //     final File file = new File("/images/epique.mp3"); 
-            final Media media = new Media("/images/epique.mp3"); 
-            final MediaPlayer mediaPlayer = new MediaPlayer(media); 
-            mediaPlayer.play();});
+                final URL resource = getClass().getResource("/images/epique.mp3");
+                final Media media = new Media(resource.toString());
+                final MediaPlayer mediaPlayer = new MediaPlayer(media);
+                mediaPlayer.play();
+});
             
            /*MenuButton btnVideo = new MenuButton("VIDEO");
            btnVideo.setOnMouseClicked(event -> {
