@@ -10,6 +10,8 @@ import javafx.animation.FadeTransition;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -205,10 +207,9 @@ public class Partie extends Parent{
 	
 	private void finPartie(){
 
-    	//bufferJ1 = Action.NE_RIEN_FAIRE;
-		//bufferJ2 = Action.NE_RIEN_FAIRE;
- 
-    	Particule part = new Particule(Color.WHITE, 2200, 500, 1000, 1000, -100, 3500);
+		bufferJ1 = Action.NE_RIEN_FAIRE;
+		bufferJ2 = Action.NE_RIEN_FAIRE;
+    	/*Particule part = new Particule(Color.WHITE, 2000, 500, 1000, 1000, -100, 3500);
     	final Font font = new Font("Calibri", 75);
     	if(joueur2.estMort()){
     		final Text text = new Text("Joueur 1 "); 
@@ -233,12 +234,39 @@ public class Partie extends Parent{
     	text2.setFill(Color.WHITE); 
     	root.getChildren().add(text2);
         root.getChildren().add(part);
-        MenuButton btnRejouer = new MenuButton("REJOUER");
-        MenuButton btnRetour = new MenuButton("RETOUR");
+        */
+        final Image img = new Image("/images/gameover.png");
+        ImageView imgView = new ImageView(img);     
+        
+        imgView.setScaleX(0.9);
+        imgView.setScaleY(0.9);
+        imgView.setX(-100);
+        imgView.setY(-100);   
+        root.getChildren().addAll(imgView);
+        if(joueur2.estMort()){
+        	final Image joueur1wins = new Image("/images/player1wins.png");
+            ImageView imgViewb = new ImageView(joueur1wins);
+            imgViewb.setScaleX(0.6);
+            imgViewb.setScaleY(0.6);
+            imgViewb.setX(230);
+            imgViewb.setY(180); 
+            root.getChildren().add(imgViewb);
+        }
+        else {
+        	final Image joueur2wins = new Image("/images/player2wins.png");
+            ImageView imgViewc = new ImageView(joueur2wins);
+            imgViewc.setScaleX(0.6);
+            imgViewc.setScaleY(0.6);
+            imgViewc.setX(230);
+            imgViewc.setY(180); 
+            root.getChildren().add(imgViewc);
+        }
+        MenuButton btnRejouer = new MenuButton("PLAY AGAIN");
+        MenuButton btnRetour = new MenuButton("BACK");
         btnRejouer.setTranslateX(700);
-        btnRejouer.setTranslateY(320);
+        btnRejouer.setTranslateY(350);
         btnRetour.setTranslateX(700);
-        btnRetour.setTranslateY(390);
+        btnRetour.setTranslateY(420);
         root.getChildren().add(btnRejouer);
         root.getChildren().add(btnRetour);
     	/*FadeTransition ft = new FadeTransition(Duration.millis(1000), root);
