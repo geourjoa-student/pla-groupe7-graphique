@@ -36,6 +36,10 @@ public class Partie extends Parent{
 	private Joueur joueur1;
 
 	private Joueur joueur2;
+	
+	private int fin =0;
+	
+	Group root;
 
 	private List<Personnage> personnages;
 
@@ -58,6 +62,7 @@ public class Partie extends Parent{
 	}
 	public Partie(InterfaceUtilisateur interfaceUtilisateur, Joueur joueur1, Joueur joueur2, Group root) {
 			
+		this.root = root;
 		this.interfaceUtilisateur = interfaceUtilisateur;
 		this.joueur1 = joueur1;
 		this.joueur2 = joueur2;
@@ -185,48 +190,10 @@ public class Partie extends Parent{
 	            }
 	            else
 	            {
-	            	bufferJ1 = Action.NE_RIEN_FAIRE;
-					bufferJ2 = Action.NE_RIEN_FAIRE;
-	            	jouerTour();
-	            	Particule part = new Particule(Color.WHITE, 2000, 500, 1000, 1000, -100, 3500);
-	            	final Font font = new Font("Calibri", 75);
-	            	if(joueur2.estMort()){
-	            		final Text text = new Text("Joueur 1 "); 
-	                	text.setLayoutX(430); 
-	                	text.setLayoutY(265); 
-	                	text.setFill(Color.BLUE); 
-	                	text.setFont(font);
-	                	root.getChildren().add(text);
-	            	}
-	            	else{
-	            		final Text text = new Text("Joueur 2 "); 
-	                	text.setLayoutX(430); 
-	                	text.setLayoutY(265); 
-	                	text.setFill(Color.RED); 
-	                	text.setFont(font);
-	                	root.getChildren().add(text);
-	            	}
-            		final Text text2 = new Text("remporte la partie!"); 
-                	text2.setLayoutX(720); 
-                	text2.setLayoutY(265);
-                	text2.setFont(font);
-                	text2.setFill(Color.WHITE); 
-                	root.getChildren().add(text2);
-	                root.getChildren().add(part);
-	                MenuButton btnRejouer = new MenuButton("REJOUER");
-	                MenuButton btnRetour = new MenuButton("RETOUR");
-	                btnRejouer.setTranslateX(700);
-	                btnRejouer.setTranslateY(320);
-	                btnRetour.setTranslateX(700);
-	                btnRetour.setTranslateY(390);
-	                root.getChildren().add(btnRejouer);
-	                root.getChildren().add(btnRetour);
-	            	/*FadeTransition ft = new FadeTransition(Duration.millis(1000), root);
-	            	ft.setFromValue(1.0);
-	            	ft.setToValue(0);
-	            	ft.setCycleCount(1);
-	            	ft.setAutoReverse(true);
-	            	ft.play();*/
+	            	fin ++;
+	            	if (fin ==0){
+	            	jouerTour();}
+	            	
 	            }
 	        
 	            
@@ -235,6 +202,53 @@ public class Partie extends Parent{
 		
 	}
 	
+	
+	private void finPartie(){
+
+    	//bufferJ1 = Action.NE_RIEN_FAIRE;
+		//bufferJ2 = Action.NE_RIEN_FAIRE;
+ 
+    	Particule part = new Particule(Color.WHITE, 2200, 500, 1000, 1000, -100, 3500);
+    	final Font font = new Font("Calibri", 75);
+    	if(joueur2.estMort()){
+    		final Text text = new Text("Joueur 1 "); 
+        	text.setLayoutX(430); 
+        	text.setLayoutY(265); 
+        	text.setFill(Color.BLUE); 
+        	text.setFont(font);
+        	root.getChildren().add(text);
+    	}
+    	else{
+    		final Text text = new Text("Joueur 2 "); 
+        	text.setLayoutX(430); 
+        	text.setLayoutY(265); 
+        	text.setFill(Color.RED); 
+        	text.setFont(font);
+        	root.getChildren().add(text);
+    	}
+		final Text text2 = new Text("remporte la partie!"); 
+    	text2.setLayoutX(720); 
+    	text2.setLayoutY(265);
+    	text2.setFont(font);
+    	text2.setFill(Color.WHITE); 
+    	root.getChildren().add(text2);
+        root.getChildren().add(part);
+        MenuButton btnRejouer = new MenuButton("REJOUER");
+        MenuButton btnRetour = new MenuButton("RETOUR");
+        btnRejouer.setTranslateX(700);
+        btnRejouer.setTranslateY(320);
+        btnRetour.setTranslateX(700);
+        btnRetour.setTranslateY(390);
+        root.getChildren().add(btnRejouer);
+        root.getChildren().add(btnRetour);
+    	/*FadeTransition ft = new FadeTransition(Duration.millis(1000), root);
+    	ft.setFromValue(1.0);
+    	ft.setToValue(0);
+    	ft.setCycleCount(1);
+    	ft.setAutoReverse(true);
+    	ft.play();*/
+    
+	}
 	
 	private void inclureAutomates(ArrayList<Automate> autoJ1,ArrayList<Automate> autoJ2){
 		Automate autoTempo;
@@ -587,7 +601,8 @@ public class Partie extends Parent{
 			
 		}
 
-		afficherMap(decor);
+		
+		
 		//afficherPersonnages(personnages);
 		
 		// Je supprime les morts de la liste
@@ -603,6 +618,12 @@ public class Partie extends Parent{
 		for (Iterator<Personnage> iterator = tempo.iterator(); iterator.hasNext();) {
 			personnages.add((Personnage) iterator.next());
 			
+		}
+		
+afficherMap(decor);
+		
+		if (estTermine() || (joueur1.estMort()) || (joueur2.estMort()) ){
+			finPartie();
 		}
 	}
 
