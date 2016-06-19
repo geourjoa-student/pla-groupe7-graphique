@@ -11,6 +11,7 @@ import jeu.InterfaceGraphique;
 import jeu.JoueurConsoleZQSD;
 import jeu.Particule;
 import jeu.Partie;
+import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
@@ -240,6 +241,7 @@ public class Main extends Application {
                 final URL resource = getClass().getResource("/images/epique.mp3");
                 final Media media = new Media(resource.toString());
                 final MediaPlayer mediaPlayer = new MediaPlayer(media);
+                mediaPlayer.setCycleCount(Animation.INDEFINITE);
                 mediaPlayer.play();
 });
             
