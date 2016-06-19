@@ -1,9 +1,10 @@
 package jeu;
 	
+import java.awt.Desktop;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+import java.net.URI;
 
 import jeu.InterfaceGraphique;
 import jeu.JoueurConsoleZQSD;
@@ -240,8 +241,8 @@ public class Main extends Application {
             final MediaPlayer mediaPlayer = new MediaPlayer(media); 
             mediaPlayer.play();});
             
-           MenuButton btnVideo = new MenuButton("VIDEO");
-           /* btnVideo.setOnMouseClicked(event -> {
+           /*MenuButton btnVideo = new MenuButton("VIDEO");
+           btnVideo.setOnMouseClicked(event -> {
             	final File file = new File("/images/dub-back.mp4"); 
                 final Media media = new Media(file.toURI().toString()); 
                 final MediaPlayer mediaPlayer = new MediaPlayer(media); 
@@ -252,11 +253,28 @@ public class Main extends Application {
             
             
             
-            MenuButton btnNotice = new MenuButton("NOTICE");
+            MenuButton2 btnNotice = new MenuButton2("MANUEL UTILISATEUR");
+            MenuButton2 btnNotice2 = new MenuButton2("MANUEL DEVELOPPEUR");
+            
+            btnNotice.setOnMouseClicked(event -> {
+            	try {
+					Desktop.getDesktop().browse(new URI("https://www.sharelatex.com/project/575ed3b7449bc1261704e180"));
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}});
 
+            btnNotice2.setOnMouseClicked(event -> {
+            	try {
+					Desktop.getDesktop().browse(new URI("https://www.sharelatex.com/project/57652cb9ba15672702160a13"));
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}});
+            
             menu0.getChildren().addAll(btnStart, btnOptions, btnHelp,btnExit);
-            menu1.getChildren().addAll(btnBack1, btnSound,btnVideo);
-            menu2.getChildren().addAll(btnBack,btnNotice);
+            menu1.getChildren().addAll(btnSound,btnBack1);
+            menu2.getChildren().addAll(btnNotice,btnNotice2,btnBack);
             
 
             Rectangle fond = new Rectangle(1700, 750);
@@ -307,6 +325,48 @@ public class Main extends Application {
             setOnMouseReleased(event -> setEffect(null));
         }
     }
+    
+    private static class MenuButton2 extends StackPane {
+        private Text text;
+
+        public MenuButton2(String nom) {
+            text = new Text(nom);
+            //text.setFont(text.getFont().font(30));
+            text.setFill(Color.WHITE);
+            text.setStyle("-fx-font: 30 defused ;");
+
+            Rectangle fond = new Rectangle(350, 30);
+            fond.setOpacity(0.4);
+            fond.setFill(Color.BLACK);
+            //Flou 
+            fond.setEffect(new GaussianBlur(3.5));
+
+            //setAlignment(Pos.CENTER_LEFT);
+            
+            getChildren().addAll(fond, text);
+
+            setOnMouseEntered(event -> {
+                fond.setTranslateX(10);
+                text.setTranslateX(10);
+                fond.setFill(Color.GREEN);
+                text.setFill(Color.BLACK);
+            });
+
+            setOnMouseExited(event -> {
+                fond.setTranslateX(0);
+                text.setTranslateX(0);
+                fond.setFill(Color.BLACK);
+                text.setFill(Color.WHITE);
+            });
+            
+            DropShadow drop = new DropShadow(50, Color.BLACK);
+            drop.setInput(new Glow());
+
+            setOnMousePressed(event -> setEffect(drop));
+            setOnMouseReleased(event -> setEffect(null));
+        }
+    }
+    
 
    
         
