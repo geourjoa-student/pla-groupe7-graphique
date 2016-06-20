@@ -175,6 +175,11 @@ public class Partie extends Parent{
 					bufferJ1 =  Action.REPARER;
 					break;
 					
+				case "N":
+					Particule part = new Particule(Color.WHITE, 2000, 500, 1000, 1000, -100, 3500);
+					root.getChildren().add(part);
+					break;
+					
 					
 				default:
 					/*System.out.println("Commande de jeu :");
