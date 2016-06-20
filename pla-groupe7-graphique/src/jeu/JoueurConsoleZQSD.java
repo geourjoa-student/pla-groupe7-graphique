@@ -13,8 +13,8 @@ public class JoueurConsoleZQSD extends JoueurConsole {
 			sc = new Scanner(System.in);
 		}
 		this.nom = nom;
-		this.bois=200;
-		this.nourriture=200;
+		this.bois=2000;
+		this.nourriture=2000;
 		this.nombrePersonnage=1;
 		this.nomFichierAutomate=nomFichierAutomate;
 		this.partie=null;

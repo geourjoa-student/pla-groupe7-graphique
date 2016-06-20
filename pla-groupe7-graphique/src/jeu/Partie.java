@@ -23,11 +23,13 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Scale;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import jeu.Main.GameMenu;
 
 public class Partie extends Parent{
 
+	Stage window2 = new Stage();
+	GameMenu menu2 = new GameMenu(window2);
 	// Taille du monde, une largeur impaire c'est mieux pour centrer
+	
 	public static final int LARGEUR = 27;
 
 	public static final int HAUTEUR = 24;
@@ -240,7 +242,7 @@ public class Partie extends Parent{
     	root.getChildren().add(text2);
         root.getChildren().add(part);
         */
-        final Image img = new Image("/images/gameover.png");
+        final Image img = new Image("/images/AttackOnBehavior.png");
         ImageView imgView = new ImageView(img);     
         
         imgView.setScaleX(0.9);
@@ -267,6 +269,8 @@ public class Partie extends Parent{
             root.getChildren().add(imgViewc);
         }
         MenuButton3 btnRejouer = new MenuButton3("PLAY AGAIN");
+        MenuButton btnRetour = new MenuButton("BACK");
+        
         btnRejouer.setOnMouseClicked(event -> {
         	Stage window = new Stage();
         	Group root = new Group();
@@ -283,7 +287,39 @@ public class Partie extends Parent{
     		window.show();
     		Main.window.close();
     	});
-        MenuButton btnRetour = new MenuButton("BACK");
+        btnRetour.setOnMouseClicked(event -> {
+        	window2.setTitle("ATTACK ON BEHAVIOR");
+            
+    		
+    	    //1er scene
+    	   
+            Pane rootMenu = new Pane();
+            rootMenu.setPrefSize(1750, 750);
+            Stage primaryStage = window2;
+            menu2 = new GameMenu(primaryStage);
+            menu2.setVisible(true);
+            
+            Scene sceneMenu = new Scene(rootMenu, 1700, 750);
+            
+            //Affichage de l'image
+           // Image img = new Image("AttackOnBehavior.png");
+            //final String imageURI = new File("/images/AttackOnBehavior.png").toURI().toString(); 
+            final Image img2 = new Image("/images/AttackOnBehavior.png");
+            ImageView imgView2 = new ImageView(img2);     
+            
+            imgView2.setScaleX(0.9);
+            imgView2.setScaleY(0.9);
+            imgView2.setX(-100);
+            imgView2.setY(-100);   
+          
+            
+            rootMenu.getChildren().addAll(imgView,menu2);
+            
+            window2.setScene(sceneMenu);
+            window2.show();;
+            Main.window.close();
+        });
+   
         btnRejouer.setTranslateX(665);
         btnRejouer.setTranslateY(350);
         btnRetour.setTranslateX(700);
