@@ -176,7 +176,7 @@ public class GameMenu extends Parent {
         
         btnNotice.setOnMouseClicked(event -> {
         	try {
-				Desktop.getDesktop().browse(new URI("https://www.sharelatex.com/project/575ed3b7449bc1261704e180"));
+				Desktop.getDesktop().browse(new URI("https://github.com/geourjoa/pla-groupe7-graphique/blob/master/pla-groupe7-graphique/manuel_de_jeu_attacks_on_behavior.pdf"));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -184,7 +184,7 @@ public class GameMenu extends Parent {
 
         btnNotice2.setOnMouseClicked(event -> {
         	try {
-				Desktop.getDesktop().browse(new URI("https://www.sharelatex.com/project/57652cb9ba15672702160a13"));
+				Desktop.getDesktop().browse(new URI("https://github.com/geourjoa/pla-groupe7-graphique/blob/master/pla-groupe7-graphique/manuel_de_developpement_attacks_on_behavior.pdf"));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

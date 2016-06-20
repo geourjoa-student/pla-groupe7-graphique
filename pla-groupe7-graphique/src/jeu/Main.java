@@ -104,7 +104,7 @@ public class Main extends Application {
         
 	}
     
-    public static class MenuButton2 extends StackPane {
+     static class MenuButton2 extends StackPane {
         private Text text;
 
         public MenuButton2(String nom) {
