@@ -284,8 +284,9 @@ public class Partie extends Parent{
     		//root.getTransforms().add(new Rotate(-38));
             window.setScene(scene);
     		p.requestFocus();
-    		window.show();
-    		Main.window.close();
+            Main.window.close();
+            Main.window = window;
+            Main.window.show();;
     	});
         btnRetour.setOnMouseClicked(event -> {
         	window2.setTitle("ATTACK ON BEHAVIOR");
@@ -316,8 +317,10 @@ public class Partie extends Parent{
             rootMenu.getChildren().addAll(imgView,menu2);
             
             window2.setScene(sceneMenu);
-            window2.show();;
             Main.window.close();
+            Main.window = window2;
+            Main.window.show();;
+
         });
    
         btnRejouer.setTranslateX(665);
