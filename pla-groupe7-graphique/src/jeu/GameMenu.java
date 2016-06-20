@@ -16,7 +16,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import jeu.Main.MenuButton2;
 
 public class GameMenu extends Parent {
     public GameMenu(Stage window) {
