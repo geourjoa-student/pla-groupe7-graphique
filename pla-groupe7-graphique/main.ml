@@ -6,22 +6,24 @@ type cellule =
 type action =
   | Ne_rien_faire
   | Deplacer of cellule
+  | Deplacer_Aleatoire
   | Attaquer
   | Recolter
   | Soigner
-  | Convertir
+  | Convertir 
   | Creer_unite
+  | Attaquer_batiment
   | Restaurer_case
 
 type condition =
   | Aucune_condition
   | Ennemi_adjacent
-  | Allie_adjacent
+  | Ennemi_adjacent_menacant
   | Ressource_adjacente
   | Ressource_sous_case
-  | Caserne_sous_case
-  | Eglise_sous_case
-  | Ferme_sous_case
+  | Batiment_allie_adjacent
+  | Allie_non_full_vie
+  | Ruine_ennemie_sous_case
   | Batiment_ennemi_adjacent
 
 type role =
@@ -55,12 +57,12 @@ let role_to_int role = match role with
 let condition_to_int condition = match condition with
   | Aucune_condition -> 0
   | Ennemi_adjacent -> 1
-  | Allie_adjacent -> 2
+  | Ennemi_adjacent_menacant -> 2
   | Ressource_adjacente -> 3
   | Ressource_sous_case -> 4
-  | Caserne_sous_case -> 5
-  | Eglise_sous_case -> 6
-  | Ferme_sous_case -> 7
+  | Batiment_allie_adjacent -> 5
+  | Allie_non_full_vie -> 6
+  | Ruine_ennemie_sous_case -> 7
   | Batiment_ennemi_adjacent -> 8
 ;;
 
@@ -71,13 +73,16 @@ let action_to_int action = match action with
   | Deplacer(E) -> 2
   | Deplacer(N) -> 3
   | Deplacer(S) -> 4
+  | Deplacer_Aleatoire -> 5
   | Attaquer -> 6
   | Recolter -> 7
   | Soigner -> 9
   | Convertir -> 10
   | Creer_unite -> 11
-  | Restaurer_case -> 12
+  | Attaquer_batiment -> 12
+  | Restaurer_case -> 13
   | _ -> -1
+;;
 
 let transition_to_ints transition = match transition with
   |(depart, condition, priorite, action, arrivee) -> (depart, condition_to_int condition, priorite, action_to_int action, arrivee);; 
@@ -122,73 +127,59 @@ let valider_automate automate = match automate with
 (* EXEMPLEs D'AUTOMATE *)
 
 let paysan_joueur1 = 
-
 	(JOUEUR1, (* le propriétaire de l'automate*)
-
 	Paysan, (* le rôle de l'automate *)
-
-	[(1, Ressource_adjacente, 1, Recolter, 1); (* la liste des transitions *)
-	(1, Ressource_sous_case, 2, Recolter, 1);
-	(1, Aucune_condition, 1, Deplacer(N), 1); (* déplacement dans une direction aléatoire *)
-	(1, Aucune_condition, 1,  Deplacer(S), 1);
-	(1, Aucune_condition, 1, Deplacer(O), 1);
-	(1, Aucune_condition, 1, Deplacer(E), 1);],
-
-    1) (*l'état final*);;
+	[(0, Ressource_sous_case, 2, Recolter, 0); (* la liste des transitions *)
+	(0, Aucune_condition, 1, Deplacer_Aleatoire, 0);],
+    0) (*l'état final*);;
 
 let guerrier_joueur1 = 
 	(JOUEUR1,
 	Guerrier,
-	[(1, Ennemi_adjacent, 1, Attaquer, 1);
-	(1, Aucune_condition, 1, Deplacer(N), 1); 
-	(1, Aucune_condition, 1,  Deplacer(S), 1);
-	(1, Aucune_condition, 1, Deplacer(O), 1);
-	(1, Aucune_condition, 1, Deplacer(E), 1);],
-    1);;
+	[(0, Ennemi_adjacent, 4, Attaquer, 0);
+	(0, Batiment_ennemi_adjacent, 3, Attaquer_batiment, 0); 
+	(0, Ruine_ennemie_sous_case, 2, Ne_rien_faire, 0);
+	(0, Aucune_condition, 1, Deplacer_Aleatoire, 0);],
+    0);;
 
 let moine_joueur1 = 
 	(JOUEUR1,
 	Moine,
-	[(1, Ennemi_adjacent, 1, Convertir, 1);
-	(1, Allie_adjacent, 1, Soigner, 1);
-	(1, Aucune_condition, 1, Deplacer(N), 1); 
-	(1, Aucune_condition, 1,  Deplacer(S), 1);
-	(1, Aucune_condition, 1, Deplacer(O), 1);
-	(1, Aucune_condition, 1, Deplacer(E), 1);],
-    1);;
+	[(0, Ennemi_adjacent, 3, Convertir, 1);
+	(1, Allie_non_full_vie, 3, Soigner, 0);
+	(1, Ennemi_adjacent, 2, Convertir, 0); 
+	(1, Aucune_condition, 1,  Deplacer_Aleatoire, 0);
+	(0, Allie_non_full_vie, 2, Soigner, 0);
+	(0, Aucune_condition, 1, Deplacer_Aleatoire, 0);],
+    0);;
 
 let paysan_joueur2 = 
-	(JOUEUR1,
-	Paysan,
-	[(1, Ressource_adjacente, 1, Recolter, 1);
-	(1, Ressource_sous_case, 2, Recolter, 1);
-	(1, Aucune_condition, 1, Deplacer(N), 1); 
-	(1, Aucune_condition, 1,  Deplacer(S), 1);
-	(1, Aucune_condition, 1, Deplacer(O), 1);
-	(1, Aucune_condition, 1, Deplacer(E), 1);],
-    1);;
+	(JOUEUR2, (* le propriétaire de l'automate*)
+	Paysan, (* le rôle de l'automate *)
+	[(0, Ressource_sous_case, 2, Recolter, 0); (* la liste des transitions *)
+	(0, Aucune_condition, 1, Deplacer_Aleatoire, 0);],
+    0) (*l'état final*);;
 
 
 let guerrier_joueur2 = 
-	(JOUEUR1,
+	(JOUEUR2,
 	Guerrier,
-	[(1, Ennemi_adjacent, 1, Attaquer, 1);
-	(1, Aucune_condition, 1, Deplacer(N), 1); 
-	(1, Aucune_condition, 1,  Deplacer(S), 1);
-	(1, Aucune_condition, 1, Deplacer(O), 1);
-	(1, Aucune_condition, 1, Deplacer(E), 1);],
-    1);;
+	[(0, Ennemi_adjacent, 4, Attaquer, 0);
+	(0, Batiment_ennemi_adjacent, 3, Attaquer_batiment, 0); 
+	(0, Ruine_ennemie_sous_case, 2, Ne_rien_faire, 0);
+	(0, Aucune_condition, 1, Deplacer_Aleatoire, 0);],
+    0);;
 
 let moine_joueur2 = 
 	(JOUEUR1,
 	Moine,
-	[(1, Ennemi_adjacent, 1, Convertir, 1);
-	(1, Allie_adjacent, 1, Soigner, 1);
-	(1, Aucune_condition, 1, Deplacer(N), 1); 
-	(1, Aucune_condition, 1,  Deplacer(S), 1);
-	(1, Aucune_condition, 1, Deplacer(O), 1);
-	(1, Aucune_condition, 1, Deplacer(E), 1);],
-    1);;
+	[(0, Ennemi_adjacent, 3, Convertir, 1);
+	(1, Allie_non_full_vie, 3, Soigner, 0);
+	(1, Ennemi_adjacent, 2, Convertir, 0); 
+	(1, Aucune_condition, 1,  Deplacer_Aleatoire, 0);
+	(0, Allie_non_full_vie, 2, Soigner, 0);
+	(0, Aucune_condition, 1, Deplacer_Aleatoire, 0);],
+    0);;
 
 (* Traduction vers un fichier xml *)
 
